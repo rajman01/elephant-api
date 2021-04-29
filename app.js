@@ -2,6 +2,10 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 
+const cors = require("cors");
+
+app.use(cors());
+
 app.get("/", function(req, res){
    
         return res.status(200).json({
@@ -58,6 +62,8 @@ app.get("/elephants/id/:id", function(req, res){
         });
     })
 });
+
+
 
 const port = process.env.PORT || "5000";
 app.listen(port, () => console.log(`server started on port ${port}`));
