@@ -59,8 +59,11 @@ app.get("/elephants/id/:id", function(req, res){
     })
 });
 
-var server = app.listen(8080, function(){
-    var host = server.address().address
-    var port = server.address().port
-    console.log("REST API elephant app listening at http://%s:%s", host, port)
-})
+const port = process.env.PORT || "5000";
+app.listen(port, () => console.log(`server started on port ${port}`));
+
+// var server = app.listen(8080, function(){
+//     var host = server.address().address
+//     var port = server.address().port
+//     console.log("REST API elephant app listening at http://%s:%s", host, port)
+// })
