@@ -27,7 +27,7 @@ app.get("/elephants/:specie", function(req, res){
         const response = JSON.parse(data);
         const species = response.filter(obj => {
             if(obj.species){
-                return obj.species === req.params.specie
+                return obj.species.toLowerCase() === req.params.specie.toLowerCase()
             }
         })
         return res.status(200).json({
