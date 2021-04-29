@@ -2,6 +2,14 @@ var express = require("express");
 var app = express();
 var fs = require("fs");
 
+app.get("/", function(req, res){
+   
+        return res.status(200).json({
+            error: false,
+            message: "server working fine"
+        });
+});
+
 app.get("/elephants", function(req, res){
     fs.readFile(__dirname + "/" + "elephants.json", "utf8", function(err, data){
         const response = JSON.parse(data)
